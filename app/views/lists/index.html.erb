@@ -1,0 +1,22 @@
+<%= render "navbar" %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/dark-vip-cinema-studio-still-life_23-2149500599.jpg?w=1060&t=st=1700141093~exp=1700141693~hmac=b1ac88bfc5a071e15e8bf1682c6c0cab51f1d0448e8c89f5c0859fc8d5767bdf);">
+  <div class="container">
+    <h1> Save your movies in lists !</h1>
+  </div>
+</div>
+
+<div class="container my-3">
+
+  <h1 class="d-flex justify-content-between">ALL MY LISTS (<%= @lists.count %>)
+   <%= link_to "Create a new list", new_list_path, style:'color:white', class:'btn btn-success'%>
+  </h1>
+
+  <div class="cards">
+
+    <% @lists.each do |list| %>
+      <%= link_to list.name, list_path(list), class:'card-category', style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://picsum.photos/420/180?random=2)" %>
+    <% end %>
+
+  </div>
+</div>

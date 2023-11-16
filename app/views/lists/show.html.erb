@@ -1,0 +1,35 @@
+<%= render "navbar" %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/dark-vip-cinema-studio-still-life_23-2149500599.jpg?w=1060&t=st=1700141093~exp=1700141693~hmac=b1ac88bfc5a071e15e8bf1682c6c0cab51f1d0448e8c89f5c0859fc8d5767bdf);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container mt-5">
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @list.bookmarks.each do |bookmark| %>
+<div class="col">
+    <div class="card h-100">
+      <img src=<%= bookmark.movie.poster_url %> class="card-img-top" alt=<%bookmark.movie.title%>>
+      <div class="card-body">
+        <h5 class="card-title"><%= bookmark.movie.title %></h5>
+        <p class="card-text"><%= bookmark.movie.overview %></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary"><%= bookmark.comment %></small>
+      </div>
+    </div>
+  </div>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.button :submit, class: "btn btn-success" %>
+  <% end %>
+
+
+</div>
