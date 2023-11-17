@@ -1,6 +1,6 @@
 <%= render "lists/navbar" %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://img.freepik.com/free-photo/dark-vip-cinema-studio-still-life_23-2149500599.jpg?w=1060&t=st=1700141093~exp=1700141693~hmac=b1ac88bfc5a071e15e8bf1682c6c0cab51f1d0448e8c89f5c0859fc8d5767bdf);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@list.photo.key, crop: :fit) %>')">
   <div class="container">
     <h1><%= @list.name %></h1>
   </div>
